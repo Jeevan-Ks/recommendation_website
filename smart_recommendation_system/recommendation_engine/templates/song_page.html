@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Song
+Recommendation{% endblock %} 
+{% block body_class %} background-songs {% endblock%} 
+{% block navbar %} nav nav-pills mb-3 songs {% endblock %} 
+{% block content %}
+<div class="form-container"><h2 class="heading display-4">Harmonious Hits</h2>
+<form method="get" action="{% url 'song_page' %}">
+        <label class ='heading display-4 label' for="language">SELECT LANGUAGE: </label>
+        <select name="language" id="genre" onchange="this.form.submit()">
+            <option value="" class="options"> --- </option>
+            {% for language in languages %}
+                <option class="options" value="{{ language.name }}" {% if language.name == selected_language %}selected{% endif %}>{{ language.name }}</option>
+            {% endfor %}
+        </select>
+    </form></div>
+
+<div id="recommendation_container">
+    {% if selected_language %}
+    {% if songs %}
+        {% for song in songs %}
+        <div class="recommendation_div">
+            <div class="recommendation">
+                {% if song.image %}
+                        <img class="song" src="{{ song.image.url }}">
+                    {% endif %}
+                <h4 class="card-title"> {{song.title}}</h4>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Singer: {{song.singer}}</h6>
+                <p class="card-text">Music : {{song.music}}</p>
+                <!-- <p class="card-text">: {{song.description}}</p> -->
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No movies found for {{ selected_language }}</p>
+    {% endif %}
+{% else %}
+<p style="color: white;">Please select a genre from the dropdown above.</p>
+{% endif %}
+{% endblock %}

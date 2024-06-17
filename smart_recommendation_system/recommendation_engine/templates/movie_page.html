@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Movie
+Recommendation{% endblock %} 
+{% block body_class %}background-movies{% endblock %} 
+{% block navbar %}nav nav-pills mb-3{% endblock %}
+{% block content %}
+<div class="form-container"><h1 class="heading display-4"> Must Watch Movies </h1>
+<form method="get" action="{% url 'movie_page' %}">
+        <label class ='heading label display-4' for="genre">SELECT GENRE: </label>
+        <select name="genre" id="genre" onchange="this.form.submit()">
+            <option value="" class="options"> --- </option>
+            {% for genre in genres %}
+                <option id="options" value="{{ genre.name }}" {% if genre.name == selected_genre %}selected{% endif %}>{{ genre.name }}</option>
+            {% endfor %}
+        </select>
+    </form></div>
+
+<div id="recommendation_container">
+    {% if selected_genre %}
+    {% if movies %}
+        {% for movie in movies %}
+        <div class="recommendation_div">
+            <div class="recommendation">
+                {% if movie.image %}
+                        <img class="movie_image" src="{{ movie.image.url }}">
+                    {% endif %}
+                <h4 class="card-title"> {{movie.title}}</h4>
+                <p class="card-text">Director: {{movie.director}}</p>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Stars: {{movie.stars}}</h6>
+                <p class="card-text">Description: {{movie.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No movies found for {{ selected_genre }}</p>
+    {% endif %}
+{% else %}
+    <p style="color: white;">Please select a genre from the dropdown above.</p>
+{% endif %}
+</div>
+<script>
+    $(document).ready(function() {
+            $('#genre').on('change', function() {
+                // Simulate an API call
+                setTimeout(function() {
+                    $('.recommendation').each(function(index) {
+                        $(this).addClass('show');
+                    });
+                }, 100); // Simulate delay for the animation effect
+            });
+        });
+
+        // Trigger animation when the page loads
+        $(window).on('load', function() {
+            $('.recommendation').each(function(index) {
+                $(this).addClass('show');
+            });
+        });
+</script>
+{% endblock %}

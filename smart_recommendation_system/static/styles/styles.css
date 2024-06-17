@@ -1,0 +1,183 @@
+body {
+    
+    background-color: #E9F1FA;
+    opacity: 0.9;
+}
+.background-movies, .background-series{
+    background-image: url("../images/background5.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin-top: 0.7rem !important;
+}
+.background-songs{
+    background-image: url("../images/backgroundsongs.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 0% !important;
+    margin-top: 0.7rem !important;
+}
+#logo{
+    width: 2.81rem ;
+    height: 2.81rem ;
+    margin-right: 1rem !important;
+    border: 1px solid #ffb560;
+    border-radius: 10px;
+}
+.nav{ /* ul list */
+    height: fit-content !important;
+    width: 100% !important;
+    margin: 0px !important;
+    padding: 1rem !important; 
+    background-color: #000000;
+    color: white !important;
+}
+.nav-item{
+    margin-right: 1.25rem !important;
+}
+.nav-link{ /* anchor tags within the base ul lists */
+    color:white;
+    padding-inline: 2rem;
+    font-weight: bold;
+}
+.nav-link:hover{
+    color:white;
+    transform: scale(1.2);
+    text-decoration: underline #00ffbf;
+}
+.nav-link.active {
+    background-color: #c30000 !important;
+    color: white; 
+    font-weight: bolder; 
+}
+.container{
+    color: white !important;
+}
+.songs{
+    background-color: #191110 !important;
+} 
+.heading{
+    text-transform: uppercase ;
+    padding: 0.2%;
+    text-align: center;  
+    /* text-shadow: 
+        -1px -1px 2px #ff0000,
+         1px -1px 2px #ff0000,
+        -1px  1px 2px #ff0000,
+         1px  1px 2px #ff0000; */
+    
+}
+.label{
+    font-size: 1.5rem;
+    text-transform: uppercase !important;
+}
+.form-container{
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+}
+#genre{ /* select tag in forms */
+    max-width: 11rem !important;
+    min-width: fit-content !important; 
+    font-size: 1.4rem !important;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* background-color: #710000; */
+    background-color: black;
+    color: white; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;    
+    /* padding-left: 0.9rem; */
+    padding-inline:0.8rem ;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    text-transform: uppercase !important;
+}
+#genre:hover{
+        text-shadow: 
+        -1px -1px 2px #ff0000,
+         1px -1px 2px #ff0000,
+        -1px  1px 2px #ff0000,
+         1px  1px 2px #ff0000;
+}
+#genre:focus{
+    outline: none !important;
+}
+#recommendation_container{ /* container to store all the movies */
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+thead, tr, th, td{
+    border: 1px solid black;
+    padding: 10px;
+}
+.recommendation_div{
+    margin:1.4rem ;
+    display: flex ;
+    flex-wrap: wrap ;
+    opacity: 0.9 ;
+    padding: 1.25rem ;
+    width: 20rem ;
+    /* justify-content: center; */
+    /* height: fit-content !important; */
+}
+.recommendation{
+    background-color: #710000 ;
+    color: white ;
+    box-shadow: 0px 0px 10px #000000 ;
+    font-weight: 500 ;
+    padding: 1rem ;
+    padding-top: 0.5rem  ;
+    width: 20rem ;
+    overflow-wrap: break-word;
+    border-radius: 1rem ;
+    min-height: fit-content !important;
+    max-height: fit-content !important;
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+        background-color: white ;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        background-color:#710000 ;
+    }
+}
+.movie_image{
+    width: 16rem !important; 
+    height: 22rem !important;
+    margin-top: 0.7rem !important;
+    margin-bottom: 2rem !important;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1rem !important;
+}
+.card-subtitle, .mb-2, .text-body-secondary{
+    color: white !important;
+    padding-top:1rem !important ;
+    padding-bottom:0.6rem !important;
+    align-self: flex-end !important;
+}
+.recommendation:hover{
+    transform: translateY(-10px) translateZ(10px) !important;
+    box-shadow: 0rem 0rem 2rem #ffffff;
+}
+.song{
+    width: 16rem !important; 
+    height: 16rem !important;
+    margin-top: 0.7rem !important;
+    margin-bottom: 2rem !important;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1rem !important;
+}
+
